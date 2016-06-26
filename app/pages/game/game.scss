@@ -1,0 +1,25 @@
+.game {
+  .score {
+    background-color: #eee;
+    height: 47px;
+    margin-top: 4px;
+    span {
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+  .stats {
+    background-color: color($colors, danger);
+    display: block;
+    height: 15px;
+    position: relative;
+    div {
+      background-color: color($colors, secondary);
+      display: block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
+}

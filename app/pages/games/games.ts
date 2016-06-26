@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { GamePage } from '../game/game';
+import { Game } from '../../interfaces/game-interface';
 
 /*
   Generated class for the GamesPage page.
@@ -11,11 +13,16 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'build/pages/games/games.html',
 })
 export class GamesPage {
-  slug: string;
+  games: Game[];
+
   constructor(
     private _nav: NavController,
     private _params: NavParams
   ) {
-    this.slug = this._params.get('slug');
+    this.games = this._params.get('games');
+  }
+
+  goToGamePage(game: Game):void {
+    this._nav.push(GamePage, { game: game })
   }
 }

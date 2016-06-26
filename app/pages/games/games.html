@@ -8,6 +8,47 @@
   <ion-title>Partidos</ion-title>
 </ion-navbar>
 
-<ion-content padding class="games">
-  <h1>{{slug}}</h1>
+<ion-content class="games">
+  <ion-card *ngFor="let game of games">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-grid>
+            <ion-row>
+              <ion-col text-right width-67>{{ game.stats[0].name }}</ion-col>
+              <ion-col width-33><img src={{game.stats[0].image_url}} /></ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+        <ion-col width-20 center text-center><strong>VS</strong></ion-col>
+        <ion-col>
+          <ion-grid>
+            <ion-row>
+              <ion-col width-33><img src={{game.stats[1].image_url}} /></ion-col>
+              <ion-col width-67>{{ game.stats[1].name }}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-right>
+          <span padding class="score">{{ game.stats[0].score }}</span>
+        </ion-col>
+        <ion-col width-20 center text-center>FINAL</ion-col>
+        <ion-col text-left>
+          <span padding class="score">{{ game.stats[1].score }}</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <p>{{game.place}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <button primary (click)="goToGamePage(game)">Ver detalle</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>
